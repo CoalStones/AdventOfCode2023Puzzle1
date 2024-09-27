@@ -7,24 +7,30 @@ if __name__ == "__main__":
     array = []
     for xy in coords:
         array.append(xy)
-        
-    coordinateArray = []
+    coords.close()
+
     numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-    first = ""
-    second = ""
+    sum = 0
     for x in array:
         one = False
+        first = ""
+        second = ""
         for y in x:
-            print(y)
+            # print(y)
             if y in numbers:
                 if one == False:
                     first = y
                     one = True
-                    print("Found the first number!")
+                    # print("Found the first number!")
                 else:
+                    print("any truers?", end=" ")
                     second = y
-                    print("Found the second number!")
+                    # print("Found the second number!")
                 
-                toAppend = first + second
-                coordinateArray.append(toAppend)
-    print(coordinateArray)
+        if one == True:
+            if second == "":
+                second = first
+            toAppend = first + second
+            print("toAppend " + toAppend + " first: " + first + " second: " + second + " line: " + x)
+            sum += int(toAppend)
+    print(sum)
